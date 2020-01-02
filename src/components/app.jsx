@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import mapboxgl from 'mapbox-gl';
-import FlatList from './flat_list';
+// import FlatList from './flat_list';
+import FlatList from '../containers/flat_list';
 
 import flats from '../../data/flat_data';
 
@@ -57,13 +58,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="row">
         <FlatList
           flats={this.state.flats}
           selectedFlat={this.state.selectedFlat}
           updateSelectedFlat={this.updateSelectedFlat}
         />
-        <div className="map-container" id="map-container">
+        <div className="map-container col-sm-5" id="map-container">
         </div>
       </div>
     );

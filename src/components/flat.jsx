@@ -7,19 +7,16 @@ class Flat extends Component {
   }
 
   render() {
-    // null handling
-    // if (!this.props.id) {
-    //   return null;
-    // }
-
+    console.log('entered flat render');
     const { flat, selected } = this.props;
 
-    const bgStyle = {
+    const style = {
       backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(${flat.imageUrl})`
-     };
+    };
 
     return (
-      <div className={`flat-card${selected ? ' selected' : ''}`} style={bgStyle} onClick={this.handleClick}>
+      <div className={`flat-card${selected ? ' selected' : ''}`} style={style} onClick={this.handleClick}>
+
         <div className="flat-card-content">
 
           <div className="flat-card-top">
