@@ -1,23 +1,39 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import mapboxgl from 'mapbox-gl';
 
 class Flat extends Component {
   handleClick = () => {
     // REDUX action. can call bc of code on lines 37 to end
-    this.props.selectFlat(this.props.flat);
+    this.props.selectFlat(this.props.flat)
+    this.updateMarker(this.props.flat);
+  }
+
+  updateMarker = (flat) => {
+    const { lng, lat } = flat;
+    const { map, marker } = this.props;
+    // remove old marker if exists
+    if (marker != null) {
+      marker.remove();
+    }
+    // add new marker and update state
+    const newMarker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+    this.props.updateMarker(newMarker);
+    // fly to new marker
+    map.flyTo({ center: [lng, lat] });
   }
 
   render() {
-    const { flat, selected } = this.props;
+    const { flat } = this.props;
 
     const style = {
       backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(${flat.imageUrl})`
     };
 
+    // add selected class to Flat if it is equal to selectedFlat in redux state
     let classes = "flat-card";
-
-    if (this.props.flat === this.props.selectedFlat ) {
+    if (flat === this.props.selectedFlat ) {
       classes += " selected";
     }
 
@@ -40,19 +56,21 @@ class Flat extends Component {
   }
 }
 
-import { selectFlat } from '../actions';
+import { selectFlat, updateMarker } from '../actions';
 
 function mapDispatchToProps(dispatch) {
   // wire action to props of FlatList
   return bindActionCreators(
-    { selectFlat },
+    { selectFlat, updateMarker },
     dispatch
   );
 }
 
 function mapReduxStateToProps(reduxState) {
   return ({
-    selectedFlat: reduxState.selectedFlat
+    selectedFlat: reduxState.selectedFlat,
+    map: reduxState.map,
+    marker: reduxState.marker
   });
 }
 

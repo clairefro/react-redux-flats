@@ -9,10 +9,14 @@ import '../assets/stylesheets/application.scss';
 
 import flatsReducer from './reducers/flats_reducer';
 import selectedFlatReducer from './reducers/selected_flat_reducer';
+import mapReducer from './reducers/map_reducer';
+import markerReducer from './reducers/marker_reducer';
 
 const reducers = combineReducers({
   flats: flatsReducer,
-  selectedFlat: selectedFlatReducer
+  selectedFlat: selectedFlatReducer,
+  map: mapReducer,
+  marker: markerReducer
 });
 
 const root = document.getElementById('root');
