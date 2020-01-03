@@ -3,3 +3,13 @@
   width: 50%;
   height: 100vh;
 }
+
+@media screen and (max-width: 992px) {
+  .map-container {
+    width: 100%;
+    height: 400px;
+    position: sticky;
+    top: 0;
+    border: 4px solid white;
+  }
+}
