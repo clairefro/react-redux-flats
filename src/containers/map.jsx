@@ -16,8 +16,9 @@ class Map extends Component {
     const map = new mapboxgl.Map({
       container: 'map-container',
       style: 'mapbox://styles/mapbox/streets-v9',
-      // center: [lng, lat],
-      zoom: 16
+      // default center to paris
+      center: [2.3522, 48.8566],
+      zoom: 12
     });
     // add map to Redux state
     this.props.setMap(map);
