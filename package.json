@@ -1,5 +1,5 @@
 {
-  "homepage": "http://clairefro.github.io/react-flats",
+  "homepage": "http://clairefro.github.io/react-redux-flats",
   "license": "UNLICENSED",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
