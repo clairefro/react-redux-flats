@@ -5,8 +5,8 @@ import mapboxgl from 'mapbox-gl';
 
 class Flat extends Component {
   handleClick = () => {
-    // REDUX action. can call bc of code on lines 37 to end
-    this.props.selectFlat(this.props.flat)
+    // REDUX action. can call bc of code on lines 59 to end
+    this.props.selectFlat(this.props.flat);
     this.updateMarker(this.props.flat);
   }
 
