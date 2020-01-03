@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl';
 // import FlatList from './flat_list';
 import FlatList from '../containers/flat_list';
 
-import flats from '../../data/flat_data';
+// import flats from '../../data/flat_data';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhaXJlZnJvZnJvIiwiYSI6ImNrMmc3YzdwdjBzOXEzaG9kY3hmdWJmbHgifQ.hvbyrZfZx7MxixCqThUrlA';
 
@@ -13,13 +13,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      flats,
-      selectedFlat: flats[0],
+      // flats,
+      // selectedFlat: flats[0],
       map: null,
       marker: null
     };
   }
-
+/*
   componentDidMount() {
     this.renderMap();
   }
@@ -55,15 +55,11 @@ class App extends Component {
     // add marker to App state
     this.setState({ marker });
   }
-
+*/
   render() {
     return (
       <div className="row">
-        <FlatList
-          flats={this.state.flats}
-          selectedFlat={this.state.selectedFlat}
-          updateSelectedFlat={this.updateSelectedFlat}
-        />
+        <FlatList />
         <div className="map-container col-sm-6" id="map-container">
         </div>
       </div>

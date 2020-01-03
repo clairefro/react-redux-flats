@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class Flat extends Component {
   handleClick = (e) => {
-    const { updateSelectedFlat, index } = this.props;
-    updateSelectedFlat(index);
+    // REDUX action. can call bc of code on lines 37 to end
+    this.props.selectFlat(this.props.flat);
   }
 
   render() {
@@ -12,6 +14,11 @@ class Flat extends Component {
     const style = {
       backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(${flat.imageUrl})`
     };
+
+    let classes = "flat-card";
+    if (this.props.flat === this.props.selectFlat ) {
+      classes += " selected";
+    }
 
     return (
       <div className={`flat-card${selected ? ' selected' : ''}`} style={style} onClick={this.handleClick}>
@@ -32,4 +39,20 @@ class Flat extends Component {
   }
 }
 
-export default Flat;
+import { selectFlat } from '../actions';
+
+function mapDispatchToProps(dispatch) {
+  // wire action to props of FlatList
+  return bindActionCreators(
+    { selectFlat },
+    dispatch
+  );
+}
+
+function mapReduxStateToProps(reduxState) {
+  return ({
+    selectFlat: reduxState.selectFlat
+  });
+}
+
+export default connect(null, mapDispatchToProps)(Flat);

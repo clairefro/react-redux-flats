@@ -1,4 +1,4 @@
-export default function flatsReducer(state, action) {
+export default function(state, action) {
   // compute/return new state
 
   // if undefined, return a default state (empty array)
@@ -7,4 +7,11 @@ export default function flatsReducer(state, action) {
   }
 
   // handle actions
+  switch (action.type) {
+
+    case 'SET_FLATS':
+      return action.payload;
+    default:
+      return state;
+  }
 }
