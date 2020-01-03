@@ -64,7 +64,7 @@ class App extends Component {
           selectedFlat={this.state.selectedFlat}
           updateSelectedFlat={this.updateSelectedFlat}
         />
-        <div className="map-container col-sm-5" id="map-container">
+        <div className="map-container col-sm-6" id="map-container">
         </div>
       </div>
     );

@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 import Flat from '../components/flat';
 
 class FlatList extends Component {
+  componentWillMount() {
+    // dispatch an action to udpate flats in Redux state tree
+
+  }
+
   render() {
     return (
-      <div className="flat-list col-sm-7">
+      <div className="flat-list col-sm-6">
         {this.props.flats.map((flat, index) => {
           return (
              <Flat

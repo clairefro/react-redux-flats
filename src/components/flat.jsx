@@ -7,7 +7,6 @@ class Flat extends Component {
   }
 
   render() {
-    console.log('entered flat render');
     const { flat, selected } = this.props;
 
     const style = {

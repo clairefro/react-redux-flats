@@ -1,10 +1,11 @@
 $border-radius: 6px;
 
 .flat-card {
-  flex-grow: 1;
+  // flex-grow: 1;
+  cursor: pointer;
   background-size: cover;
   background-position: center;
-  min-width: 300px;
+  width: 300px;
   height: 180px;
   color: white;
   font-size: 20px;
@@ -12,6 +13,8 @@ $border-radius: 6px;
   border-radius: $border-radius;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 6px;
+  margin-top: 12px;
+
 
   .flat-card-content {
     height: 100%;
