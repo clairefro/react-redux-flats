@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 import FlatList from '../containers/flat_list';
+import Map from '../containers/map';
 
 // import flats from '../../data/flat_data';
 
@@ -15,8 +16,8 @@ class App extends Component {
     this.state = {
       // flats,
       // selectedFlat: flats[0],
-      map: null,
-      marker: null
+      // map: null,
+      // marker: null
     };
   }
 /*
@@ -60,8 +61,7 @@ class App extends Component {
     return (
       <div className="row">
         <FlatList />
-        <div className="map-container col-sm-6" id="map-container">
-        </div>
+        <Map />
       </div>
     );
   }

@@ -52,7 +52,6 @@ function mapDispatchToProps(dispatch) {
 
 function mapReduxStateToProps(reduxState) {
   return ({
-    selectFlat: reduxState.selectFlat,
     selectedFlat: reduxState.selectedFlat
   });
 }

@@ -14,3 +14,17 @@ export function selectFlat(flat) {
     payload: flat
   };
 }
+
+export function setMap(map) {
+  return {
+    type: 'SET_MAP',
+    payload: map
+  };
+}
+
+export function updateMarker(marker) {
+  return {
+    type: 'UPDATE_MARKER',
+    payload: marker
+  };
+}

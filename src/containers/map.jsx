@@ -1,41 +1,54 @@
-// import React, { Component } from 'react';
-//
-// mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhaXJlZnJvZnJvIiwiYSI6ImNrMmc3YzdwdjBzOXEzaG9kY3hmdWJmbHgifQ.hvbyrZfZx7MxixCqThUrlA';
-//
-// class Map extends Component {
-//   constructor(props) {
-//     super(props);
-//
-//     this.state = {
-//       selectedFlat: this.props.selectedFlat,
-//       map: null,
-//       marker: null
-//     };
-//   }
-//
-//   componentDidMount() {
-//     this.renderMap();
-//   }
-//
-//   renderMap = () => {
-//     const { lat, lng } = this.state.selectedFlat;
-//     const map = new mapboxgl.Map({
-//       container: 'map-container',
-//       style: 'mapbox://styles/mapbox/streets-v9',
-//       center: [lng, lat],
-//       zoom: 16
-//     });
-//     // add map to App state
-//     this.setState({ map });
-//     const marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
-//     // add marker to App state
-//     this.setState({ marker });
-//   }
-//
-//   render() {
-//     <div className="col-sm-5" id="map-container">
-//     </div>
-//   }
-// }
-//
-// export default Map;
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import mapboxgl from 'mapbox-gl';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhaXJlZnJvZnJvIiwiYSI6ImNrMmc3YzdwdjBzOXEzaG9kY3hmdWJmbHgifQ.hvbyrZfZx7MxixCqThUrlA';
+
+class Map extends Component {
+
+  componentDidMount() {
+    this.renderMap();
+  }
+
+  renderMap = () => {
+    // const { lat, lng } = this.props.selectedFlat;
+    const map = new mapboxgl.Map({
+      container: 'map-container',
+      style: 'mapbox://styles/mapbox/streets-v9',
+      // center: [lng, lat],
+      zoom: 16
+    });
+    // add map to Redux state
+    this.props.setMap(map);
+    // const marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+    // update marker to Redux state
+    // this.props.updateMarker(marker);
+  }
+
+  render() {
+    return (
+      <div className="col-sm-5 map-container" id="map-container">
+      </div>
+    )
+  }
+}
+
+import { setMap, updateMarker } from '../actions';
+
+function mapDispatchToProps(dispatch) {
+  // wire actions to props of Map
+  return bindActionCreators(
+    { setMap, updateMarker },
+    dispatch
+  );
+}
+
+function mapReduxStateToProps(reduxState) {
+  return ({
+    map: reduxState.map,
+    marker: reduxState.marker
+  });
+}
+
+export default connect(mapReduxStateToProps, mapDispatchToProps)(Map);
