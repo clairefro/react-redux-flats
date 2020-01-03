@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import mapboxgl from 'mapbox-gl';
-// import FlatList from './flat_list';
+
 import FlatList from '../containers/flat_list';
 
 // import flats from '../../data/flat_data';

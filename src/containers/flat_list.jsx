@@ -19,7 +19,6 @@ class FlatList extends Component {
              <Flat
                 flat={flat}
                 key={flat.id}
-                selected={flat === this.props.selectedFlat}
                 index={index}
                 updateSelectedFlat={this.props.updateSelectedFlat}
               />

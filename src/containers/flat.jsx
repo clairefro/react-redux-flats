@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class Flat extends Component {
-  handleClick = (e) => {
+  handleClick = () => {
     // REDUX action. can call bc of code on lines 37 to end
     this.props.selectFlat(this.props.flat);
   }
@@ -16,12 +16,13 @@ class Flat extends Component {
     };
 
     let classes = "flat-card";
-    if (this.props.flat === this.props.selectFlat ) {
+
+    if (this.props.flat === this.props.selectedFlat ) {
       classes += " selected";
     }
 
     return (
-      <div className={`flat-card${selected ? ' selected' : ''}`} style={style} onClick={this.handleClick}>
+      <div className={classes} style={style} onClick={this.handleClick}>
 
         <div className="flat-card-content">
 
@@ -51,8 +52,9 @@ function mapDispatchToProps(dispatch) {
 
 function mapReduxStateToProps(reduxState) {
   return ({
-    selectFlat: reduxState.selectFlat
+    selectFlat: reduxState.selectFlat,
+    selectedFlat: reduxState.selectedFlat
   });
 }
 
-export default connect(null, mapDispatchToProps)(Flat);
+export default connect(mapReduxStateToProps, mapDispatchToProps)(Flat);
