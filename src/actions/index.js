@@ -1,11 +1,23 @@
-import flats from '../../data/flat_data';
+// import flats from '../../data/flat_data';
 
 export function setFlats() {
-  // TODO: API call. for now we are using simulated // DEBUG:
-  return {
-    type: 'SET_FLATS',
-    payload: flats
-  };
+  const url = 'https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json';
+
+  return fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+      return {
+        type: 'SET_FLATS',
+        payload: data
+      };
+    })
+    .catch((err) => {})
+    
+  // code when was using imported flats object data
+  // return {
+  //   type: 'SET_FLATS',
+  //   payload: flats
+  // };
 }
 
 export function selectFlat(flat) {

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { logger } from 'redux-logger';
+import reduxPromise from 'redux-promise';
 
 import App from './components/app';
 
@@ -20,7 +21,7 @@ const reducers = combineReducers({
   marker: markerReducer
 });
 
-const middlewares = applyMiddleware(logger);
+const middlewares = applyMiddleware(logger, reduxPromise);
 
 const root = document.getElementById('root');
 if (root) {
