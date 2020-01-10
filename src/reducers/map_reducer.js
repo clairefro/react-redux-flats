@@ -1,14 +1,11 @@
-export default function(state, action) {
-  // compute/return new state
+import { SET_MAP } from '../actions';
 
-  if (state === undefined) {
-    return null;
-  }
+export default function(state = null, action) {
+  // compute/return new state
 
   // handle actions
   switch (action.type) {
-
-    case 'SET_MAP':
+    case SET_MAP:
       return action.payload;
     default:
       return state;
