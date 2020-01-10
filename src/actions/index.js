@@ -2,7 +2,7 @@
 export const SET_FLATS = 'SET_FLATS';
 export const SELECT_FLAT = 'SELECT_FLAT';
 export const SET_MAP = 'SET_MAP';
-export const UPDATE_MAKER = 'UPDATE_MAKER';
+export const UPDATE_MARKER = 'UPDATE_MARKER';
 
 export function setFlats() {
   const url = 'https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json';
@@ -11,7 +11,7 @@ export function setFlats() {
     .then(response => response.json())
     .then((data) => {
       return {
-        type: 'SET_FLATS',
+        type: SET_FLATS,
         payload: data
       };
     })
@@ -26,21 +26,21 @@ export function setFlats() {
 
 export function selectFlat(flat) {
   return {
-    type: 'SELECT_FLAT',
+    type: SELECT_FLAT,
     payload: flat
   };
 }
 
 export function setMap(map) {
   return {
-    type: 'SET_MAP',
+    type: SET_MAP,
     payload: map
   };
 }
 
 export function updateMarker(marker) {
   return {
-    type: 'UPDATE_MARKER',
+    type: UPDATE_MARKER,
     payload: marker
   };
 }
