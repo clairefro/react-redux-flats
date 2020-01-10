@@ -1,4 +1,8 @@
 // import flats from '../../data/flat_data';
+export const SET_FLATS = 'SET_FLATS';
+export const SELECT_FLAT = 'SELECT_FLAT';
+export const SET_MAP = 'SET_MAP';
+export const UPDATE_MAKER = 'UPDATE_MAKER';
 
 export function setFlats() {
   const url = 'https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json';
@@ -11,8 +15,8 @@ export function setFlats() {
         payload: data
       };
     })
-    .catch((err) => {})
-    
+    .catch(err => console.log(err));
+
   // code when was using imported flats object data
   // return {
   //   type: 'SET_FLATS',

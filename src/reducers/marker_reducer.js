@@ -1,14 +1,12 @@
-export default function(state, action) {
-  // compute/return new state
+import { UPDATE_MARKER } from '../actions';
 
-  if (state === undefined) {
-    return null;
-  }
+export default function(state = null, action) {
+  // compute/return new state
 
   // handle actions
   switch (action.type) {
 
-    case 'UPDATE_MARKER':
+    case UPDATE_MARKER:
       return action.payload;
     default:
       return state;

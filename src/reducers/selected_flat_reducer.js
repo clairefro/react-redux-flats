@@ -1,15 +1,11 @@
-export default function(state, action) {
-  // compute/return new state
+import { SELECT_FLAT } from '../actions';
 
-  // if undefined, return a default state (empty array)
-  if (state === undefined) {
-    // no flat selected by default
-    return null;
-  }
+export default function(state = null, action) {
+  // compute/return new state
 
   // handle actions
   switch (action.type) {
-    case 'SELECT_FLAT':
+    case SELECT_FLAT:
       return action.payload;
     default:
       // return current state if action type is not 'SELECT_FLAT'

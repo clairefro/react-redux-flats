@@ -1,15 +1,12 @@
-export default function(state, action) {
-  // compute/return new state
+import { SET_FLATS } from '../actions';
 
-  // if undefined, return a default state (empty array)
-  if (state === undefined) {
-    return []
-  }
+export default function(state = [], action) {
+  // compute/return new state
 
   // handle actions
   switch (action.type) {
 
-    case 'SET_FLATS':
+    case SET_FLATS:
       return action.payload;
     default:
       return state;
